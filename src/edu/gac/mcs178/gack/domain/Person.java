@@ -65,6 +65,14 @@ public class Person {
 			Utility.displayMessage(this + " does not have " + scroll);
 		}
 	}
+
+	public void eat(Food food){
+		if((food.isOwned()) && (food.getOwner().equals(this))){
+			food.beEaten();
+		} else{
+			Utility.displayMessage(this + " does not have " + food);
+		}
+	}
 	
 	public void haveFit() {
 		say("Yaaaah! I am upset");
@@ -110,7 +118,6 @@ public class Person {
 	public void give(Thing thing, Person recipient) {
 		// check if owner is npc
 		//this is a change
-		
 		if (!equals(thing.getOwner())) {
 			Utility.displayMessage(this + " does not have " + thing);
 		} else {
