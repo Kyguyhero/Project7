@@ -109,6 +109,8 @@ public class Person {
 	// new method for give
 	public void give(Thing thing, Person recipient) {
 		// check if owner is npc
+		//this is a change
+		
 		if (!equals(thing.getOwner())) {
 			Utility.displayMessage(this + " does not have " + thing);
 		} else {
