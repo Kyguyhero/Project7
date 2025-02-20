@@ -106,6 +106,20 @@ public class Person {
 		}
 	}
 	
+	// new method for give
+	public void give(Thing thing, Person recipient) {
+		// check if owner is npc
+		if (!equals(thing.getOwner())) {
+			Utility.displayMessage(this + " does not have " + thing);
+		} else {
+			// user inventory should lose thing
+			this.possessions.remove(thing);
+			// recipient should possess thing
+			recipient.possessions.add(thing);
+			this.say("Here, have my charity " + thing + ", " + recipient);
+		}
+	}
+	
 	public void lose(Thing thing) {
 		if (!equals(thing.getOwner())) {
 			Utility.displayMessage(this + " doesn't have " + thing);
