@@ -8,7 +8,7 @@ public class Food extends Thing{
     public Food(String title){
         super(title);
     }
-    public void beRead(){
+    public void beEaten(){
         Person owner = getOwner();
         if(owner == null){
             Utility.displayMessage("No one has " + getName());

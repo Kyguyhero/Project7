@@ -7,6 +7,7 @@ import edu.gac.mcs178.gack.domain.Scroll;
 import edu.gac.mcs178.gack.domain.Thing;
 import edu.gac.mcs178.gack.domain.Witch;
 import edu.gac.mcs178.gack.domain.Wizard;
+import edu.gac.mcs178.gack.domain.Food;
 
 public class GackWorld extends World {
 	
@@ -64,6 +65,8 @@ public class GackWorld extends World {
 		}
 		computerLab.gain(new Scroll("Unix Programmers Manual"));
 		computerLab.gain(new Scroll("NeXT User's Reference"));
+
+		foodService.gain(new Food("Chocolate"));
 		
 		// 14.34
 		dormitory.gain(new Scroll("late lab report"));
