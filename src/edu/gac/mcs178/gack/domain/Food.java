@@ -1,5 +1,6 @@
 package edu.gac.mcs178.gack.domain;
 
+import java.io.Console;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,6 +15,8 @@ public class Food extends Thing{
             Utility.displayMessage("No one has " + getName());
         } else {
 			owner.say("I have eaten " + getName());
+            becomeUnowned();
+            Utility.displayMessage("If eaten this should be null: " + getOwner());
 		}
 	}
 	
