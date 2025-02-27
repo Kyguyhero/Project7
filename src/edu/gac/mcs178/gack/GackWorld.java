@@ -7,7 +7,9 @@ import edu.gac.mcs178.gack.domain.Scroll;
 import edu.gac.mcs178.gack.domain.Thing;
 import edu.gac.mcs178.gack.domain.Witch;
 import edu.gac.mcs178.gack.domain.Wizard;
-import edu.gac.mcs178.gack.domain.Food;
+import edu.gac.mcs178.gack.domain.*;
+
+import java.util.*;
 
 public class GackWorld extends World {
 	
@@ -26,6 +28,24 @@ public class GackWorld extends World {
 		Place pond = new Place("Pond");
 		// Add new place called Lund Center
 		Place lund = new Place("Lund");
+		
+		ArrayList<Place> listOfPlaces = new ArrayList<Place>() {
+			{
+			add(foodService);
+			add(po);
+			add(alumniHall);
+			add(chamberOfWizards);
+			add(library);
+			add(goodShipOlin);
+			add(lounge);
+			add(computerLab);
+			add(offices);
+			add(dormitory);
+			add(pond);
+			add(lund);
+			}
+		};
+		
 		
 		foodService.addNewNeighbor("down", po);
 		po.addNewNeighbor("south", alumniHall);
@@ -65,11 +85,12 @@ public class GackWorld extends World {
 		}
 		computerLab.gain(new Scroll("Unix Programmers Manual"));
 		computerLab.gain(new Scroll("NeXT User's Reference"));
-
-		foodService.gain(new Food("Chocolate"));
 		
 		// 14.34
 		dormitory.gain(new Scroll("late lab report"));
+		
+		// Test magic scrolls
+		dormitory.gain(new ScrollOfTeleportation("Random Teleportation Scroll", listOfPlaces, 2));
 		
 		// Adding new scroll item to lund location (git practice)
 		lund.gain(new Scroll("Louis don't barf magical enchantment"));
