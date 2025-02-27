@@ -29,6 +29,7 @@ public class GackWorld extends World {
 		// Add new place called Lund Center
 		Place lund = new Place("Lund");
 		
+		// List of places for magic scroll iterations
 		ArrayList<Place> listOfPlaces = new ArrayList<Place>() {
 			{
 			add(foodService);
