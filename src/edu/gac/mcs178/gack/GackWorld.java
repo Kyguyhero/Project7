@@ -69,7 +69,7 @@ public class GackWorld extends World {
 		offices.addNewNeighbor("north", lounge);
 		// Add lund as neighbor to dormitory
 		dormitory.addNewNeighbor("northwest", lund);
-		dormitory.addNewNeighbor("southwest", Villa);
+		dormitory.addNewNeighbor("southwest", foodService);
 		new AutoPerson("Max", offices, 2);
 		new AutoPerson("Karl", computerLab, 4);
 		new Witch("Barbara", offices, 3, pond);
@@ -97,7 +97,7 @@ public class GackWorld extends World {
 		// Adding new scroll item to lund location (git practice)
 		lund.gain(new Scroll("Louis don't barf magical enchantment"));
 		
-		
+		foodService.gain(new Food("Chocolate"));
 		setPlayer(new Person("player", dormitory));
 	}
 }

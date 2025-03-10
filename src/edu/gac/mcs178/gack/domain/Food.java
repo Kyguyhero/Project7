@@ -15,8 +15,7 @@ public class Food extends Thing{
             Utility.displayMessage("No one has " + getName());
         } else {
 			owner.say("I have eaten " + getName());
-            becomeUnowned();
-            Utility.displayMessage("If eaten this should be null: " + getOwner());
+            
 		}
 	}
 	

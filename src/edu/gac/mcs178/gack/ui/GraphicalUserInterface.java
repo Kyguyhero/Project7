@@ -35,12 +35,13 @@ public class GraphicalUserInterface extends JFrame implements MessageDisplay {
 	private JComboBox dropJComboBox;
 	private JComboBox readJComboBox;
 	private JComboBox giveJComboBox;
+	private JComboBox eatJComboBox;
 	private GoActionListener goActionListener;
 	private TakeActionListener takeActionListener;
 	private DropActionListener dropActionListener;
 	private ReadActionListener readActionListener;
 	private GiveActionListener giveActionListener;
-	
+	private EatActionListener eatActionListener;
 	public GraphicalUserInterface(Person player) {
 		super();
 		this.pace = 2;
@@ -133,8 +134,12 @@ public class GraphicalUserInterface extends JFrame implements MessageDisplay {
 		dropActionListener = new DropActionListener(this, player, dropJComboBox);
 		dropJComboBox.addActionListener(dropActionListener);
 		controlPanel.add(dropJComboBox);
-	}
 	
+		eatJComboBox = new JComboBox();
+		eatActionListener = new EatActionListener(this, player, eatJComboBox);
+		eatJComboBox.addActionListener(eatActionListener);
+		controlPanel.add(eatJComboBox);
+	}
 	public void playTurn() {
 		AutoPerson.getRegistry().trigger(pace);
 		updateJComboBoxes();
@@ -147,6 +152,7 @@ public class GraphicalUserInterface extends JFrame implements MessageDisplay {
 		dropActionListener.updateJComboBox();
 		readActionListener.updateJComboBox();
 		giveActionListener.updateJComboBox();
+		eatActionListener.updateJComboBox();
 		enableJComboListeners(true);
 	}
 	
@@ -156,6 +162,8 @@ public class GraphicalUserInterface extends JFrame implements MessageDisplay {
 		dropActionListener.setEnabled(b);
 		readActionListener.setEnabled(b);
 		giveActionListener.setEnabled(b);
+		eatActionListener.setEnabled(b);
+		
 	}
 	
 	public void displayMessage(String text) {

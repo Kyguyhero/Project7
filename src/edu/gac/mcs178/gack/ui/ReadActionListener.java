@@ -30,14 +30,11 @@ public class ReadActionListener implements ActionListener {
 		this.readJComboBox = readJComboBox;
 		this.enabled = true;
 		scrolls = Scroll.scrollsIn(player.getPlace());
-		food = Food.foodIn(player.getPlace());
 		readJComboBox.addItem(INTSRUCTIONS);
 		for (Scroll scroll : scrolls) {
 			readJComboBox.addItem(scroll);
 		}
-		for (Food foodItem: food) {
-			readJComboBox.addItem("eat " + foodItem);
-		}
+		
 	}
 	
 	public void setEnabled(boolean b) {
@@ -47,14 +44,11 @@ public class ReadActionListener implements ActionListener {
 	public void updateJComboBox() {
 		readJComboBox.removeAllItems();
 		scrolls = Scroll.scrollsIn(player.getPlace());
-		food = Food.foodIn(player.getPlace());
 		readJComboBox.addItem(INTSRUCTIONS);
 		for (Scroll scroll : scrolls) {
 			readJComboBox.addItem(scroll);
 		}
-		for (Food foodItem: food) {
-			readJComboBox.addItem("eat " + foodItem);
-		}
+
 	}
 
 	@Override
@@ -62,16 +56,9 @@ public class ReadActionListener implements ActionListener {
 		if (enabled) {
 			//Scroll item = (Scroll) readJComboBox.getSelectedItem();
 			Thing item = (Thing) readJComboBox.getSelectedItem();
-			if (item instanceof Food) {
-				if (!item.getName().equals(INTSRUCTIONS.getName())) {
-					gui.displayMessage("\n>>> Eat " + item);
-					player.eat((Food) item);
-					player.lose(item);
-					gui.playTurn();
-				//add beEaten
-				}
+			
 				
-			} else if (item instanceof Scroll) {
+			if (item instanceof Scroll) {
 				if (!item.getName().equals(INTSRUCTIONS.getName())) {
 					gui.displayMessage("\n>>> Read " + item);
 					player.read((Scroll) item);
