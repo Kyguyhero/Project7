@@ -65,6 +65,13 @@ public class Person {
 			Utility.displayMessage(this + " does not have " + scroll);
 		}
 	}
+	public void eat(Food food){
+		if((food.isOwned()) && (food.getOwner().equals(this))){
+			this.possessions.remove(food);
+		} else{
+			Utility.displayMessage(this + " does not have " + food);
+		}
+	}
 	
 	public void haveFit() {
 		say("Yaaaah! I am upset");

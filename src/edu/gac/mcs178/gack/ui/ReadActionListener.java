@@ -3,22 +3,26 @@ package edu.gac.mcs178.gack.ui;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
-
+import edu.gac.mcs178.gack.domain.Thing;
 import javax.swing.JComboBox;
 import edu.gac.mcs178.gack.domain.Thing;
 
 import edu.gac.mcs178.gack.domain.Person;
 import edu.gac.mcs178.gack.domain.Scroll;
+import edu.gac.mcs178.gack.domain.Food;
 
 public class ReadActionListener implements ActionListener{
 	
-	private static final Scroll INTSRUCTIONS = new Scroll("Read ...");
+	private static final Thing INTSRUCTIONS = new Thing("Read ...");
 	
+	
+
 	private GraphicalUserInterface gui;
 	private Person player;
 	private JComboBox readJComboBox;
 	private boolean enabled;
 	private List<Scroll> scrolls;
+	private List<Food> food;
 
 	public ReadActionListener(GraphicalUserInterface gui, Person player, JComboBox readJComboBox) {
 		super();
@@ -32,6 +36,7 @@ public class ReadActionListener implements ActionListener{
 		for (Scroll scroll : scrolls) {
 			readJComboBox.addItem(scroll);
 		}
+		
 		
 	}
 	
@@ -62,6 +67,8 @@ public class ReadActionListener implements ActionListener{
 					player.read((Scroll) item);
 					gui.playTurn();
 			}
+			
+			}  
 		}
 	}
 }}
