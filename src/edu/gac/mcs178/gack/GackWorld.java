@@ -8,6 +8,7 @@ import edu.gac.mcs178.gack.domain.Thing;
 import edu.gac.mcs178.gack.domain.Witch;
 import edu.gac.mcs178.gack.domain.Wizard;
 import edu.gac.mcs178.gack.domain.*;
+import edu.gac.mcs178.gack.domain.Food;
 
 import java.util.*;
 
@@ -73,6 +74,7 @@ public class GackWorld extends World {
 		new Witch("Barbara", offices, 3, pond);
 		new Wizard("Elvee", offices, 1, chamberOfWizards);
 		
+		
 		// Create new witch (git practice)
 		new Witch("Jacob", lund, 2, pond);
 		
@@ -85,6 +87,8 @@ public class GackWorld extends World {
 		}
 		computerLab.gain(new Scroll("Unix Programmers Manual"));
 		computerLab.gain(new Scroll("NeXT User's Reference"));
+
+		foodService.gain(new Food("Chocolate"));
 		
 		// 14.34
 		dormitory.gain(new Scroll("late lab report"));

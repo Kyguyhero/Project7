@@ -1,5 +1,4 @@
 package edu.gac.mcs178.gack.ui;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
